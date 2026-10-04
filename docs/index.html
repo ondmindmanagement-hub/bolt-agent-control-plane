@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>BOLT Agent Control Plane</title>
+<style>
+body{font-family:-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif;background:#0b0d11;color:#f5f7fa;margin:0}
+main{max-width:880px;margin:0 auto;padding:64px 24px}
+.card{background:#151922;border:1px solid #2b3340;border-radius:18px;padding:24px;margin:18px 0}
+h1{font-size:42px;margin:0 0 12px}.muted{color:#aeb7c4}.pill{display:inline-block;padding:6px 10px;border:1px solid #475366;border-radius:999px;margin-right:8px}
+button{font:inherit;background:#fff;color:#111;border:0;border-radius:12px;padding:12px 18px;cursor:pointer}
+pre{white-space:pre-wrap;background:#0a0c10;border-radius:12px;padding:16px;overflow:auto}
+select{font:inherit;padding:10px;border-radius:10px}
+</style>
+</head>
+<body>
+<main>
+<span class="pill">Nebius Token Factory</span><span class="pill">NVIDIA Nemotron</span>
+<h1>BOLT Agent Control Plane</h1>
+<p class="muted">A governed agent workflow demo. The reasoning layer was validated live with NVIDIA Nemotron-3-Nano-30B-A3B on Nebius Token Factory.</p>
+<div class="card">
+<h2>Interactive policy gate</h2>
+<p>Select an action and run it through the bounded execution policy.</p>
+<select id="action">
+<option value="summarize">Summarize project status</option>
+<option value="draft">Prepare email draft</option>
+<option value="send">Send email to partner</option>
+<option value="unknown">Unknown external action</option>
+</select>
+<button onclick="run()">Evaluate</button>
+<pre id="out">Ready.</pre>
+</div>
+<div class="card">
+<h2>Validated live Nemotron run</h2>
+<p class="muted">Observed on 2026-10-04 in Nebius Token Factory Playground.</p>
+<pre>{
+  "model": "NVIDIA Nemotron-3-Nano-30B-A3B",
+  "platform": "Nebius Token Factory",
+  "time_to_first_token_ms": 168,
+  "total_seconds": 2.9,
+  "throughput_tokens_per_second": 183.2,
+  "steps": [
+    {"action":"summarize project status","decision":"allow","risk":"low"},
+    {"action":"prepare email draft","decision":"allow","risk":"low"},
+    {"action":"send email to partner","decision":"approval_required","risk":"medium"}
+  ]
+}</pre>
+</div>
+<div class="card"><h2>Source</h2><p><a style="color:#9fc4ff" href="https://github.com/ondmindmanagement-hub/bolt-agent-control-plane">github.com/ondmindmanagement-hub/bolt-agent-control-plane</a></p></div>
+</main>
+<script>
+function run(){
+ const a=document.getElementById('action').value;
+ const table={
+  summarize:{decision:'allow',risk:'low',approvalRequired:false,reason:'Internal information only.'},
+  draft:{decision:'allow',risk:'low',approvalRequired:false,reason:'Non-binding draft; can be reviewed before external use.'},
+  send:{decision:'approval_required',risk:'medium',approvalRequired:true,reason:'External communication requires human oversight.'},
+  unknown:{decision:'deny',risk:'high',approvalRequired:false,reason:'Action is outside the configured policy.'}
+ };
+ document.getElementById('out').textContent=JSON.stringify(table[a],null,2);
+}
+</script>
+</body></html>
