@@ -1,1 +1,10 @@
-{"name":"bolt-agent-control-plane","version":"0.1.0","type":"module","scripts":{"start":"node src/index.js","test":"node src/test.js"}}
+{
+  "name": "bolt-agent-control-plane",
+  "version": "0.1.0",
+  "type": "module",
+  "scripts": {
+    "start": "node src/index.js",
+    "test": "node src/test.js",
+    "nebius": "node src/nebius.js"
+  }
+}
