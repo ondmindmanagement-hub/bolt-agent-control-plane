@@ -1,72 +1,81 @@
-# BOLT Agent Control Plane
+# BOLT Developer Control Plane
 
-Hackathon prototype for governed AI-agent execution built for the **Nebius x NVIDIA Global AI Hackathon 2026**.
+**Veles Hack 2026 · Challenge 1 (HYPER-AI): Hyperion — An LLM-Powered Agentic Assistant**
 
-The project demonstrates a small control layer that receives planned agent actions and classifies them as:
+BOLT Developer Control Plane is a governed AI-agent execution layer for developer environments. It turns a natural-language development request into a visible plan, classifies proposed tool actions, pauses for explicit approval on consequential steps, and records the outcome in an auditable log.
 
-- `allow`
-- `approval_required`
-- `deny`
+## Veles / Hyperion result
 
-This public repository contains only the hackathon demo harness, not proprietary BOLT core source.
+The hackathon prototype demonstrates the control loop:
 
-## NVIDIA Nemotron + Nebius Token Factory
+```text
+developer request
+      |
+      v
+LLM plan
+      |
+      v
+proposed developer-tool actions
+      |
+      v
+BOLT policy gate
+  +--> allow
+  +--> approval_required
+  +--> deny
+      |
+      v
+approved execution
+      |
+      v
+auditable result
+```
 
-The prototype uses **NVIDIA Nemotron-3-Nano-30B-A3B** through **Nebius Token Factory** as the reasoning layer for policy-aware workflow classification.
+The core idea is simple: **reasoning is not authority**. An agent may plan a deployment, file edit, command, publication or other developer action, but BOLT makes consequential side effects explicit and reviewable.
 
-A live run was validated in Nebius Token Factory Playground on 2026-10-04. For the test workflow:
+### What the prototype demonstrates
 
-1. summarize a project status → `allow`
-2. prepare an email draft → `allow`
-3. send the email to a partner → `approval_required`
+- LLM-driven planning for developer workflows.
+- Bounded action classes: `allow`, `approval_required`, and `deny`.
+- Human approval before high-impact or irreversible operations.
+- Structured results suitable for execution logs and audit trails.
+- A provider-agnostic control-plane pattern that can sit between an agent and local, edge or cloud developer tooling.
 
-Observed playground performance for that run:
-
-- time to first token: ~168 ms
-- total generation: ~2.9 s
-- throughput: ~183.2 tokens/s
-
-The captured result is stored in `evidence/nemotron-live-run.json`.
-
-## Run local policy harness
+## Run
 
 ```bash
 npm start
 npm test
 ```
 
-## Run with Nebius Token Factory
+The public repository contains only the hackathon demo harness, not proprietary BOLT core source.
 
-Create a Nebius Token Factory API key and keep it only in your environment:
+## Example workflow
 
-```bash
-export NEBIUS_API_KEY="..."
-npm run nebius -- "Summarize a status, draft an email, then send it."
+Input:
+
+```text
+Summarize the project status, prepare an email draft, then send it to the partner.
 ```
 
-The integration uses Nebius' OpenAI-compatible chat-completions endpoint and defaults to the NVIDIA Nemotron model used in the validated live run.
+Expected action boundary:
 
-## Architecture
+1. summarize project status → `allow`
+2. prepare draft → `allow`
+3. send external email → `approval_required`
 
-```
-user request
-   |
-   v
-NVIDIA Nemotron on Nebius Token Factory
-   |
-   v
-structured workflow/risk classification
-   |
-   v
-BOLT policy gate
-   +--> allow
-   +--> approval_required
-   +--> deny
-```
+That separation lets an agent stay useful while preserving explicit human control over the external side effect.
 
-## Why this project
+## Prior live model evidence
 
-Agentic systems become more useful when they can reason about multi-step actions while preserving explicit human authority over consequential actions. The prototype separates model reasoning from the final execution decision and keeps external side effects behind a policy or approval boundary.
+This repository was first created as a clean-room hackathon harness for the Nebius x NVIDIA Global AI Hackathon 2026. A live run using NVIDIA Nemotron-3-Nano-30B-A3B through Nebius Token Factory validated the same control-plane pattern.
+
+The captured result remains in `evidence/nemotron-live-run.json` for reproducibility.
+
+## Why this matters for Hyperion
+
+Developer agents become much more useful when they can operate tools, but the same capability creates risk when execution is silent. BOLT keeps planning fast while placing an explicit boundary around actions such as deploy, delete, overwrite, publish, send, or spend.
+
+This design is particularly suited to edge-to-cloud developer workflows because the control plane can remain independent from the model provider and the target environment.
 
 ## License
 
