@@ -54,6 +54,7 @@ The model must return a limited JSON actions array. Invalid output or a missing 
 - Earlier historical live use: Nemotron model via Nebius Token Factory Playground, documented in evidence/nemotron-live-run.json.
 - Newly connected Node inference-to-policy code: validated through mocked inference response and fail-closed unit tests only.
 - Offline browser demonstration: https://ondmindmanagement-hub.github.io/bolt-agent-control-plane/
+- **Updated video (28 October):** [BOLT Nebius × NVIDIA evidence walkthrough, 85 seconds](docs/BOLT_Nebius_NVIDIA_2026_Evidence_Demo.mp4), published via the GitHub Pages demo. This caption-led, silent demonstration uses real screenshots of the current offline browser visualizer, validated local tests and separately labeled historical Nemotron Playground evidence. It makes **no** claim of a new live Node.js inference.
 - Existing video: demo/BOLT_Developer_Control_Plane_Demo.mp4, 48 seconds, NOT a new live integrated Token Factory session.
 - No enterprise deployment, production-grade auditing, operating-system side-effect execution, real human approvals, financial savings or independently validated customer security are claimed.
 
