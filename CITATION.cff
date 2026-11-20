@@ -1,0 +1,20 @@
+cff-version: 1.2.0
+message: "If you refer to this research demonstration, please cite this repository."
+type: software
+title: "BOLT Agent Control Plane"
+authors:
+  - family-names: "Baró"
+    given-names: "Omar"
+repository-code: "https://github.com/ondmindmanagement-hub/bolt-agent-control-plane"
+url: "https://ondmindmanagement-hub.github.io/bolt-agent-control-plane/"
+license: "MIT"
+abstract: >-
+  A research-stage, read-only developer demonstration of deterministic
+  policy classification for AI-suggested actions, without external action
+  execution or real authenticated human approval.
+keywords:
+  - AI governance
+  - human oversight
+  - action authorization
+  - deterministic policy
+  - research demonstration
