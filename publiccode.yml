@@ -1,0 +1,46 @@
+# Public software metadata for the public research demo only.
+# This is not evidence of any public-sector deployment or EU catalogue listing.
+publiccodeYmlVersion: "0.5"
+name: "BOLT Agent Control Plane"
+url: "https://github.com/ondmindmanagement-hub/bolt-agent-control-plane.git"
+landingURL: "https://ondmindmanagement-hub.github.io/bolt-agent-control-plane/"
+softwareVersion: "0.1.0"
+releaseDate: "2026-11-21"
+platforms:
+  - web
+  - linux
+  - mac
+  - windows
+developmentStatus: development
+softwareType: standalone/other
+description:
+  en:
+    shortDescription: "Read-only research demo for deterministic policy decisions on AI-proposed actions."
+    longDescription: >
+      BOLT Agent Control Plane is an experimental, open-source developer
+      demonstration exploring how to separate proposed AI actions from authority
+      to execute them. It parses a limited structured action format and applies
+      predetermined local rules to produce allow, approval_required, or deny
+      classifications. The offline browser visualizer and Node.js test suite
+      demonstrate the policy mechanism, but do not perform external actions
+      or authenticate human approvals. No public-sector deployment, security
+      certification, accessibility validation or production integration is
+      claimed. Any use by a public administration is prospective only and
+      would require independent assessment and adaptation.
+    documentation: "https://github.com/ondmindmanagement-hub/bolt-agent-control-plane/blob/main/README.md"
+    features:
+      - "Deterministic classification of limited proposed action types."
+      - "Read-only report; no external side effects in the public demo."
+      - "Open source documentation, mocked integration tests and offline visualizer."
+legal:
+  license: MIT
+  mainCopyrightOwner: "Omar Baró / Unfire"
+maintenance:
+  type: internal
+  contacts:
+    - name: "Omar Baró"
+      email: "hello@unfire.technology"
+localisation:
+  localisationReady: false
+  availableLanguages:
+    - en
