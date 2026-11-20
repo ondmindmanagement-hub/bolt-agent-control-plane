@@ -64,6 +64,17 @@ The model must return a limited JSON actions array. Invalid output or a missing 
 
 This repo also hosts historical work for the Veles Hyperion challenge (VELES_RESULTS.md and PITCH.md). This is separate from Nebius requirements, and does not mean any Veles result satisfies the Nebius model/inference rule.
 
+## Institutional evidence and reproducibility
+
+An [institutional evidence brief](docs/INSTITUTIONAL_EVIDENCE_BRIEF.md) describes this
+public read-only experiment, its reproducibility steps, limitations and suggested
+independent evaluation protocol. The brief can be cited in research or catalogue
+submissions **without suggesting independent certification, OECD/EU endorsement or
+rights over Unfire's separate proprietary applications**.
+
+GitHub's **Cite this repository** function is supported through `CITATION.cff`.
+No DOI or journal peer review is claimed.
+
 ## Rights and provenance
 
 MIT license applies to this public clean-room repository only, not Unfire's separate proprietary BOLT macOS software. Work used AI-assisted code and writing; no claim of exclusively human-created material.
