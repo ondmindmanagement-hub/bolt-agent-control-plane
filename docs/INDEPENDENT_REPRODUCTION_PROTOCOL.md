@@ -23,6 +23,24 @@ Commands:
 
 The first command sequence tests the local public code and prints a planning-only report. Inspect the scripts before execution. Do **not** run npm run nebius for this assessment: the optional live inference path could incur costs and is not necessary. The author observed 12/12 local offline checks on this fixed experimental version; this observation is **not independent third-party validation**.
 
+## Optional repeatable case runner on the current main branch
+
+Beyond the pinned v0.1.0-research-20261121 release, current main now includes
+a small read-only command to score reviewer-created fictional batches:
+
+    npm run review:offline < examples/reviewer-cases.json
+
+The seven example labels were authored by the maintainer and **do not constitute
+independent test evidence**. You can provide your own JSON cases and expected
+classification labels, or omit expectations until after running. The command
+reports classifications and mismatches, never carries out actions, and does
+not call Nebius or another provider.
+
+**Version warning:** this reviewer runner was added AFTER the fixed research
+release. It is not included in the original v0.1.0 tag. Record the exact main
+Git commit you tested; do not claim the later runner is part of the pinned
+release. Any change to this interface or policy must also be separately noted.
+
 ## Independent synthetic challenges
 
 A reviewer should write expected decisions **before** running new cases. Beyond the bundled unit tests, independently create at least 12 new fictional proposals covering:

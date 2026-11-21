@@ -84,3 +84,29 @@ No DOI or journal peer review is claimed.
 MIT license applies to this public clean-room repository only, not Unfire's separate proprietary BOLT macOS software. Work used AI-assisted code and writing; no claim of exclusively human-created material.
 
 Contact: hello@unfire.technology | https://unfire.technology
+
+## Reviewer-defined fictional challenges (offline)
+
+Researchers can run their OWN invented action proposals against this read-only
+policy without editing source code or connecting to a model provider. With
+Node.js 20 or newer:
+
+    npm run review:offline < examples/reviewer-cases.json
+
+The seven supplied example cases and their expectations were created by the
+maintainer and are NOT independent ground truth. Create a separate JSON file
+following the same structure with 1 to 50 cases, distinct case IDs, up to 64 KiB
+of UTF-8 input, and optional expected arrays of allow, approval_required or
+deny, or expected equal to reject. Write the expectations BEFORE viewing the
+output. Cases without expected labels are marked unscored.
+
+Results contain only case IDs, observed classification, mismatches and explicit
+no-execution/no-approval indicators. Original proposal descriptions are omitted
+from the output to reduce unnecessary disclosure, but this is NOT a privacy
+filter: never provide real personal, customer or confidential information.
+
+This helper runs the same deterministic local classifier as the public demo.
+It does not authenticate an evaluator, execute an external action, contact
+Nebius, check semantic safety or provide audit-grade verification. See the
+independent reproduction protocol in docs/INDEPENDENT_REPRODUCTION_PROTOCOL.md.
+No private Unfire applications are included.

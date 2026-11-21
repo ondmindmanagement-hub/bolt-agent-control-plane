@@ -4,7 +4,8 @@
   "type": "module",
   "scripts": {
     "start": "node src/index.js",
-    "test": "node src/test.js",
-    "nebius": "node src/nebius.js"
+    "test": "node src/test.js && node src/review.test.js",
+    "nebius": "node src/nebius.js",
+    "review:offline": "node src/review.js"
   }
 }
