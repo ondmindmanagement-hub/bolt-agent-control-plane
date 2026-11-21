@@ -10,9 +10,9 @@ A small, inspectable prototype that separates an AI model's *proposal* from perm
 
 **Maturity and rights:** This is one public research repository from Omar Baró / Unfire, an independent founder-led R&D initiative in Spain. No independent endorsement, production deployment, revenue impact or compliance certification is claimed. The MIT license applies to **this repository only**, not Unfire's separately developed proprietary apps.
 
-BOLT Agent Control Plane is an open-source developer-workflow experiment from Omar Baró / Unfire. It separates an AI model's proposed actions from authority to execute them: the language model proposes, and a fixed local policy decides whether a proposed action is allowed, needs human approval, or is denied. **This public experiment does not execute system tools, send emails, deploy code or grant actual human approvals.**
-
 ## Historical competition context (October 2026)
+
+BOLT Agent Control Plane is an open-source developer-workflow experiment from Omar Baró / Unfire. It separates an AI model's proposed actions from authority to execute them: the language model proposes, and a fixed local policy decides whether a proposed action is allowed, needs human approval, or is denied. **This public experiment does not execute system tools, send emails, deploy code or grant actual human approvals.**
 
 **Nebius x NVIDIA Global AI Hackathon 2026 — existing Devpost submission.**
 
