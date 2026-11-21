@@ -64,6 +64,10 @@ The model must return a limited JSON actions array. Invalid output or a missing 
 
 This repo also hosts historical work for the Veles Hyperion challenge (VELES_RESULTS.md and PITCH.md). This is separate from Nebius requirements, and does not mean any Veles result satisfies the Nebius model/inference rule.
 
+## Independent reproduction invitation
+
+Researchers may reproduce the fixed public experiment using the [independent evaluation protocol](docs/INDEPENDENT_REPRODUCTION_PROTOCOL.md), which includes synthetic test categories, a reviewer reporting template and clear safety/rights limitations. This is an **invitation, not independent validation**. Voluntary no-cost feedback can be shared via GitHub issues or written email, without calls or proprietary code access.
+
 ## Institutional evidence and reproducibility
 
 An [institutional evidence brief](docs/INSTITUTIONAL_EVIDENCE_BRIEF.md) describes this
