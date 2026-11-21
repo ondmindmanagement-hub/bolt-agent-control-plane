@@ -1,8 +1,20 @@
 # BOLT Agent Control Plane
 
-**Nebius x NVIDIA Global AI Hackathon 2026 — existing Devpost submission**
+**Public research · 21 November 2026 · MIT-licensed read-only experiment**
+
+A small, inspectable prototype that separates an AI model's *proposal* from permission to act. Its local, deterministic policy classifies structured proposed actions as **allow**, **approval_required** or **deny**, and outputs a **read-only report**. It does not execute external actions, grant authenticated human approvals, or demonstrate production-grade security.
+
+**Start here:** [Try the static policy visualizer](https://ondmindmanagement-hub.github.io/bolt-agent-control-plane/) · [Inspect the fixed 21 November research release](https://github.com/ondmindmanagement-hub/bolt-agent-control-plane/releases/tag/v0.1.0-research-20261121) · [Read the evidence brief](docs/INSTITUTIONAL_EVIDENCE_BRIEF.md) · [Independent reproduction protocol](docs/INDEPENDENT_REPRODUCTION_PROTOCOL.md).
+
+**Reproduce offline (Node.js 20+):** `npm test`. Current `main` additionally offers a synthetic reviewer-challenge CLI: `npm run review:offline < examples/reviewer-cases.json`; that CLI is **not** part of the fixed release. No paid model provider is needed for offline review; the separate, optional live inference route may incur provider charges. The example cases and tests were prepared by the maintainer, not independently certified. Do not enter customer, personal or confidential data.
+
+**Maturity and rights:** This is one public research repository from Omar Baró / Unfire, an independent founder-led R&D initiative in Spain. No independent endorsement, production deployment, revenue impact or compliance certification is claimed. The MIT license applies to **this repository only**, not Unfire's separately developed proprietary apps.
 
 BOLT Agent Control Plane is an open-source developer-workflow experiment from Omar Baró / Unfire. It separates an AI model's proposed actions from authority to execute them: the language model proposes, and a fixed local policy decides whether a proposed action is allowed, needs human approval, or is denied. **This public experiment does not execute system tools, send emails, deploy code or grant actual human approvals.**
+
+## Historical competition context (October 2026)
+
+**Nebius x NVIDIA Global AI Hackathon 2026 — existing Devpost submission.**
 
 > **State as of 9 October 2026:** Devpost acknowledged an initial submission on 4 October. This repository was subsequently adapted for Veles Hack (see VELES_RESULTS.md). The original source had an isolated Nebius request script and a separate local policy gate. This update connects the Nebius response with the policy gate in code. We tested this new connection using mock API responses, **not a new live Nebius inference call**. Evidence from a previous Nemotron Playground session is historical.
 
@@ -58,7 +70,7 @@ The model must return a limited JSON actions array. Invalid output or a missing 
 - Existing video: demo/BOLT_Developer_Control_Plane_Demo.mp4, 48 seconds, NOT a new live integrated Token Factory session.
 - No enterprise deployment, production-grade auditing, operating-system side-effect execution, real human approvals, financial savings or independently validated customer security are claimed.
 
-**Eligibility:** Nebius x NVIDIA rules require the project to actually use Nebius inference or compute with an open NVIDIA model, plus a working demo, video, public repository/license and feedback. The new Node integration still needs a genuine account-authorized live test. Review/update the **existing submission**, not another one, by 30 October 2026, 10:00 PDT.
+**Eligibility:** Nebius x NVIDIA rules require the project to actually use Nebius inference or compute with an open NVIDIA model, plus a working demo, video, public repository/license and feedback. The new Node integration still needs a genuine account-authorized live test. The 30 October 2026, 10:00 PDT deadline has passed; this paragraph records historical competition eligibility and is not a current submission invitation.
 
 ## Related Veles prototype
 
