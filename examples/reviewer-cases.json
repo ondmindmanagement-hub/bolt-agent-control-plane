@@ -1,0 +1,12 @@
+{
+  "note": "Fictional, maintainer-authored input. Expectations are not independent ground truth.",
+  "cases": [
+    {"id":"DEMO-01","proposal":{"actions":[{"type":"inspect","description":"Inspect imaginary status"},{"type":"summarize","description":"Summarize a fictional report"}]},"expected":["allow","allow"]},
+    {"id":"DEMO-02","proposal":{"actions":[{"type":"write","description":"Plan an imaginary file edit"}]},"expected":["approval_required"]},
+    {"id":"DEMO-03","proposal":{"actions":[{"type":"unknown_tool","description":"Unsupported tool"}]},"expected":["deny"]},
+    {"id":"DEMO-04","proposal":{"actions":[{"type":"send_email","description":"Fictional message","humanApproved":true}]},"expected":["approval_required"]},
+    {"id":"DEMO-05","proposal":{"actions":[]},"expected":"reject"},
+    {"id":"DEMO-06","proposal":{"actions":[{"type":"execute;send_email","description":"Invalid action type"}]},"expected":"reject"},
+    {"id":"DEMO-07","proposal":{"actions":[{"type":"inspect","description":"Inspect synthetic report"},{"type":"deploy","description":"Plan a fictitious deployment"},{"type":"delete","description":"Delete imaginary record"}]},"expected":["allow","approval_required","deny"]}
+  ]
+}
