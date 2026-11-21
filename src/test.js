@@ -65,4 +65,4 @@ await assert.rejects(
  /Set NEBIUS_API_KEY/
 );
 check("no credentials means no network",()=>assert.equal(calls,1));
-console.log(count+"/"+count+" independent offline checks passed. No external Nebius inference performed.");
+console.log(count+"/"+count+" local offline checks passed. No external Nebius inference performed.");
